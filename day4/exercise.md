@@ -1,5 +1,7 @@
 1. Create a basic express server with a single route '/' and method GET and send 'hello world' in response.
 
+
+
 2. Create a middleware thats logs request method and request url and host from request headers in console on every request.
 
 3. create a middleware that consoles the current time when a request is made on '/' route.
