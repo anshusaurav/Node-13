@@ -225,8 +225,60 @@ Q11. Create a article Schema
     - create a model named 'Article'
     - Insert 2 document using Atricle Model
 
+
+```js
+
+const mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var articleSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+    },
+    likes: {
+        type: Number,
+        default:0
+    },
+    author: {
+        type: String,
+        required: true
+    }
+},{timestamps:true});
+
+module.exports = mongoose.model("Article", articleSchema);
+```
+
+
+```js
+const mongoose = require('mongoose');
+var User = require("./models/user");
+var Address = require("./models/address");
+var Article = require("./models/article");
+mongoose.connect('mongodb://localhost:27017/Day5-exercise', 
+{useNewUrlParser: true, useUnifiedTopology: true},
+(err) =>{
+    console.log(err);
+});
+
+var articleObj = {title: "Morgan Library", description: "Interesting library", likes: 18, author: "5eab1cf107d75d377076c69c"};
+
+Article.create(articleObj, (err, data) => {
+    if(err) {console.log({err}); return;}
+    console.log('Article added');
+});
+
+```
+
 Q12. Create a comment Schema
     - insert name, timestamps, user(ObjectId of user), article(ObjectId of Article)
     - add required validator to name and user
     - create a Comment model
     - insert 2 documents each for an article created in Q11. 
+
+
+```js
+
+```
